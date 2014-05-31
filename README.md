@@ -39,6 +39,8 @@ Gmail stats can be run as daemon. It will use **send-notify** standard linux not
 to send a notification if there are new unread emails. It does not bug you if unread email count
 is not changing, but will remind you on increase.
 
+![Screenshot](https://raw.github.com/DATA-DOG/gmail-stats/master/screen.png)
+
     gmail-stats -u account@gmail.com -p secretpassword -d
 
 By default it will check mailbox every **60** seconds, you can change this interval to 20 seconds for instance:
