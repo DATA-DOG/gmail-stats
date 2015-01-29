@@ -3,12 +3,13 @@ package main
 import (
 	"encoding/xml"
 	"fmt"
-	"github.com/codegangsta/cli"
 	"io/ioutil"
 	"net/http"
 	"os"
 	"os/exec"
 	"time"
+
+	"github.com/codegangsta/cli"
 )
 
 const ATOM_FEED = "https://mail.google.com/a/gmail.com/feed/atom"
@@ -30,11 +31,11 @@ func main() {
 	app.Usage = `Shows your gmail mailbox unread messages`
 
 	app.Flags = []cli.Flag{
-		cli.BoolFlag{"count, c", "Return only count of unread messages."},
-		cli.BoolFlag{"daemon, d", "Run as daemon, uses notify-send event to display email status."},
-		cli.IntFlag{"interval, i", 60, "Daemon check interval, defaults to 60 seconds."},
-		cli.StringFlag{"username, u", "", "Gmail account username."},
-		cli.StringFlag{"password, p", "", "Gmail account password."},
+		cli.BoolFlag{Name: "count, c", Usage: "Return only count of unread messages."},
+		cli.BoolFlag{Name: "daemon, d", Usage: "Run as daemon, uses notify-send event to display email status."},
+		cli.IntFlag{Name: "interval, i", Value: 60, Usage: "Daemon check interval, defaults to 60 seconds."},
+		cli.StringFlag{Name: "username, u", Value: "", Usage: "Gmail account username."},
+		cli.StringFlag{Name: "password, p", Value: "", Usage: "Gmail account password."},
 	}
 
 	app.Action = func(c *cli.Context) {
